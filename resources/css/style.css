@@ -1,0 +1,435 @@
+/*
+1. Variable and colors
+2. HTML and Body
+3. Navigation
+4. Skills
+5. Blog posts projects
+6. Footer & contact
+7. Nerd Font
+8. Animation
+*/
+
+
+
+/* 1. Variables and colors*/
+
+:root {
+    font-size: 18px;
+    --bck-color:hsl(0, 0%, 90%);
+    --txt-color:hsl(0, 0%, 15%);
+    --project-color: hsl(0, 0%, 30%);
+    --form-color: hsl(0, 0%, 95%);
+    --teal-color: hsl(180, 100%, 29%);
+    --vscode-color: hsl(204, 87%, 40%);
+    --consoleSpeed: 3s;
+    --consoleText: 22;
+    --consoleDelay: 1500ms;
+}
+
+.html-color{
+    color: hsl(18, 87%, 55%);
+}
+
+.css-color {
+    color: hsl(207, 74%, 42%);
+}
+
+.js-color {
+    color: hsl(60, 80%, 55%);
+}
+
+.git-color {
+    color: hsl(11, 92%, 56%);
+}
+
+.github-color {
+    color:hsl(360, 0%, 30%);
+}
+
+.linkedin-color {
+    color: hsl(210, 90%, 40%);
+}
+
+.love-color {
+    color: hsl(340, 90%, 40%);
+}
+
+.vscode-color {
+    color: hsl(204, 87%, 40%);
+}
+
+.manjaro-color {
+    color: #34BE5B;
+}
+/* 2. HTML Body Elements*/
+
+html {
+    justify-content: center;
+    color: var(--txt-color);
+    background-color:var(--bck-color);
+    font-family: 'Open Sans';
+}
+
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    min-height: 100vh;
+}
+
+body{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url(../images/background2.jpg);
+    background-size: cover;
+    background-position: 20%;
+}
+
+main {
+    z-index: 1;
+    min-width: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 3. Navigation */
+
+
+.sticky {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+.navigation {
+    height: fit-content;
+    background-color: var(--txt-color);
+    width: 100vw;
+}
+
+.navigation ul {
+    padding-left: 0px;
+    list-style-type: none;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0px auto;
+}
+
+.navigation ul li {
+    padding: 3px 10px 0px 10px;
+    font-size:clamp(1rem, 3vw + 0.25rem, 1.5rem);
+    font-weight: 900;
+    letter-spacing: 1.25px;
+    line-height: calc(3rem - 3px);
+}
+
+.navigation a{
+    color: var(--bck-color);
+    text-decoration: none;
+}
+
+.navigation li:hover {
+    background-color: var(--project-color);
+}
+
+
+
+
+
+/* 4. Skills */
+
+.console {
+    background-color: var(--txt-color);
+    color: var(--bck-color);
+    width: 100vw;
+    text-align: center;
+    display: flex; 
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills {
+    width: 100%;
+    height: fit-content;
+    display:flex;
+    justify-content: space-evenly;
+    margin: 1rem auto;
+    font-size: 1.15rem;
+}
+
+.eachskill {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-brands {
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.skills .fa-solid {
+    font-size: 1.5rem;
+}
+.level {
+    font-size: 0.75rem;
+    font-style: normal;
+    margin-bottom: -0.5rem;
+}
+
+
+/* 5 . Blog posts & Projects */
+
+
+.parts {
+    margin:0rem 1rem;
+    width: 60vw;
+}
+
+.projects {
+    background-color: var(--project-color);
+    color: var(--bck-color);
+    text-align: center;
+    font-style: oblique;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin:1.5rem auto;
+    padding: 0.5rem 0px;
+}
+
+.post {
+    margin: 1rem auto 8rem auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.post h2{
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin: 1rem auto;
+}
+.post p {
+    margin-top: 2rem;
+}
+
+.post a:hover {
+    opacity: 0.8;
+}
+.paragraph {
+    text-align: justify;
+    line-height: 1.65rem;
+}
+
+.paragraph summary, 
+.paragraph a{
+    color: var(--txt-color);
+    text-decoration: none;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+}
+
+
+.left {
+    border-radius: 5px;
+    float: left;
+    margin: -0.5rem 2rem 2rem 0rem;
+    box-shadow: 5px 5px 5px 0px var(--txt-color);
+}
+
+.right {
+    float: right;
+    margin: 2rem 0rem 2rem 2rem;
+    box-shadow: -5px 5px 5px 0px var(--txt-color);
+}
+.postimg {
+    overflow:hidden;
+    aspect-ratio: 16 / 9;
+    width: clamp(300px, 50%,400px);
+    
+}
+
+
+hr {
+    margin-top: 5rem;
+}
+
+
+/* 6. footer & contact */
+footer {
+    z-index: 1;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bottom {
+    width: 60vw;
+}
+.contact {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+.socials {
+    width: clamp(38ch, 50%, 60ch);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.links {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+footer .fa-brands {
+    font-size: 3rem;
+}
+
+footer .fa-brands:hover {
+    opacity: 0.85;
+}
+
+.email {
+    font-size: 1.25rem;
+    width: clamp(30ch, 50%, 60ch);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline .fa-solid{
+    font-size: 4rem;
+    text-align: center;
+    margin: 1rem;
+    color: var(--vscode-color);
+}
+
+.btn {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+    padding: 5px;
+}
+
+.btn i {
+    padding-left: 5px;
+}
+.form-control {
+    margin: 2.5px auto;
+    height: 1.5rem;
+}
+.col {
+    width: 50%;
+}
+.form-control,
+.text-area {
+    width: calc(100% - 4px - 4px);
+    background-color: var(--form-color);
+    border-radius: 5px;
+    border: 1px solid var(--vscode-color);
+}
+.foot {
+    width: calc(100vw - 1rem);
+    text-align:center;
+    padding: 0.5rem 0px;
+}
+
+.fa-solid {
+    font-size: 1.5em;
+}
+
+/* 7. Nerd Font icons*/
+.nf {
+    font-family: 'NerdFontsSymbols Nerd Font';
+}
+.nf-linux-manjaro:before {
+    content: "\f312";
+    font-size: 1.75rem;
+}
+.nf-dev-visualstudio::before {
+    content: "\e70c";
+    font-size: 2rem;
+}
+.nf-mdi-console_line::before {
+    color: var(--bck-color);
+    content: "\fcb5";
+    margin: 0px 0.1ch;
+    padding: 0.25rem;
+}
+.nf-mdi-console_line {
+    margin: 0px;
+}
+
+/*8. Animation*/
+
+#date {
+    font-family: 'Red Hat Mono';
+    font-size: clamp(0.75rem, 3vw + 0.1rem, 1.25rem);
+    position: relative;
+    padding: 0.25rem;
+    margin: 0px;
+    width:max-content;
+}
+
+#date::after,
+#date::before {
+    content: '';
+    position:absolute;
+    left: calc(50% - 11ch);
+    top:0;
+    bottom:0;
+    right:0;
+    
+}
+
+#date::before {
+    background: var(--txt-color);
+    animation: 
+        console var(--consoleSpeed) steps(var(--consoleText)) var(--consoleDelay) forwards;
+}
+#date::after {
+    left: calc(50% - 11ch);
+    width: 1ch;
+    background: var(--bck-color);
+    animation:
+        console var(--consoleSpeed) steps(var(--consoleText)) var(--consoleDelay) forwards,
+        blink 750ms steps(var(--consoleText)) infinite;
+}
+
+@keyframes console {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: var(--txt-color);
+    }
+}

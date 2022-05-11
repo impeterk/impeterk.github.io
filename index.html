@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/font-face.css">
+    <link rel="shortcut icon" href="resources/images/rocket-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="resources/css/modal.css">
+    <script src="https://kit.fontawesome.com/d3cce1be66.js" crossorigin="anonymous"></script>
+    <script defer src="resources/js/index.js"></script>
+
+    <title>I'm Peter K.</title>
+</head>
+
+<body>
+
+
+    <header class="sticky">
+        <nav class="navigation">
+            <ul>
+                <li><a href="#home"><i class="fa-solid fa-file-lines"></i> Home</a></li>
+                <li><a href="#projects"><i class="fa-solid fa-code"></i> projects</a></li>
+                <li><a href="#contacts"><i class="fa-solid fa-address-card"></i> contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <main id="home">
+        
+        <div class="console"><h2 class="nf nf-mdi-console_line">:</h2><h2 id="date">Hello World</h2></div>
+        <section class="skills">
+                <div class="eachskill">
+                    <i class="fa-brands fa-html5 html-color" title="The HyperText Markup Language is the standard language for documents designed to be displayed in a web browser"></i>
+                    <i class="level">level</i>
+                    <div class="rank"><i class="fa-solid fa-minus html-color"></i><i class="fa-solid fa-minus html-color"></i><i class="fa-solid fa-minus html-color"></i><i class="fa-solid fa-minus html-color"></i><i class="fa-solid fa-minus html-color"></i></div>
+                </div>
+                <div class="eachskill">
+                    <i class="fa-brands fa-css3-alt css-color" title="Cascading Style Sheets is a style sheet language used for describing the presentation of a document."></i>
+                    <i class="level">level</i>
+                    <div class="rank"><i class="fa-solid fa-minus css-color"></i><i class="fa-solid fa-minus css-color"></i><i class="fa-solid fa-minus css-color"></i><i class="fa-solid fa-minus css-color"></i><i class="fa-solid fa-minus"></i></div>
+                </div>
+                <div class="eachskill">
+                    <i class="fa-brands fa-js-square js-color" title="JavaScript is a high-level, often just-in-time compiled language that is one of the core technologies of the World Wide Web. Over 97% of websites use JavaScript"></i>
+                    <i class="level">level</i>
+                    <div class="rank"><i class="fa-solid fa-minus js-color"></i><i class="fa-solid fa-minus js-color"></i><i class="fa-solid fa-minus js-color"></i><i class="fa-solid fa-minus"></i><i class="fa-solid fa-minus"></i></div>
+                </div>
+                <div class="eachskill">
+                    <i class="fa-brands fa-git-alt git-color" title="Git is version control system designed to handle everything from small to very large projects with speed and efficiency"></i>
+                    <i class="level">level</i>
+                    <div class="rank"><i class="fa-solid fa-minus git-color"></i><i class="fa-solid fa-minus git-color"></i><i class="fa-solid fa-minus"></i><i class="fa-solid fa-minus"></i><i class="fa-solid fa-minus"></i></div>
+                </div>
+        </section>
+        <div class="content">
+            <div class="Blog parts">
+                <p class="projects">Blog</p>
+                <div class="post">
+                    <h2>Hello World (1.post)</h2>
+                    <div class="paragraph">
+                        <p class="posttext"><img class="postimg left" src="resources/images/hello-world.png" title="hello world img">Welcome to my personal portfolio website.<br> Feel free to browse and if you would like, leave me some feedback. I am going post regular updates about my current and upcomming projects. About decisions I made within these projects and tools I'm using to get the job done. Another goal is to document my journey to became frontend developer.
+                        <br>
+                        New post should be up at the begging of each week. Some projects I'm going to work on in the near future are reddit client writen in React.js or chess game written in vue.js.
+                        <details>
+                            <summary>So to get started (website 1.0)</summary>
+                        This is my second portfolio website. <img id="myImg" class="postimg right" src="resources/images/website_old.PNG" alt="First version of my  website. Ended up too cluttered and anxious.">The first one end up as many early projects ends. I took a piece that was too big for me. I wanted everything  there to showcase my abilities. So as you can see it was a big mess.But in the end, less is sometimes better. I found out the hard way. As you can see, it was a mess. But I learned a bit and now as you can see the web is much cleaner and simpler.<br>
+                        </details></p>
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div id="projects" class="parts">
+                <p class="projects">My projects</p>
+                <div class="post">
+                    <h2>Know the word?</h2>
+                    <div class="paragraph">
+                        <p class="posttext"><a href="resources/words/index.html" target="_blank" title="Wordle knock-off"><img class="postimg left" src="resources/images/wordle-copy.png"></a>My first project I decided to make public. This one was inspirad by the famous wordle game made by Josh Wardle, that took the wordld by storm. My take on this project was to show, that one can create such a game without any preproccesors or javascript frameworks. I made it slovak language for slovak audience. <br>Click on the <a href="resources/words/index.html" target="_blank">link</a> or the image to see the whole project.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="post">
+                    <h2>Tea cozy (codecademy)</h2>
+                    <div class="paragraph">
+                        <p class="posttext"><a href="resources/Tea_Cozy/index.html" target="_blank" title="Tea Cozy. Small teashop website."><img class="postimg left" src="resources/images/tea-cozy.png"></a>Welcome to <i>Tea Cozy</i> finest tea store in town. At least that's how I imagine they would greet people inside this imaginary tea store in Portland, Maine. This is one of the projects provided by Codecademy.
+                        I, as a student was only provided with base materials such as photos and wireframe of how the final product should look like. Goal of this project was to build the whole website from ground up. I believe that for a small static website it looks quite nice and posh.<br>Click on the <a href="resources/Tea Cozy/index.html" target="_blank">link</a> or the image to see the whole project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer id="contacts">
+        <div class="bottom">
+            <p class="projects">Contact me</p>
+            <div class="contact">
+                <div class="socials">
+                    <p>If You like what you see, or if You would like to work with me. You can find me here: </p>
+                    <div class="links">
+                        <a href="https://linkedin.com/in/impeterk" target="_blank"> <i class="fa-brands fa-linkedin linkedin-color"></i></a> 
+                        <a href="https://github.com/impeterk" target="_blank"> <i class="fa-brands fa-github github-color"></i></a>
+                    </div>
+                </div>
+                <div class="email">
+                    <div class="inline">
+                        <p>Contact me dirrectly</p><p class="fa-solid fa-envelope"></p>
+                    </div>
+                    <div class="emailform">
+                        <form target="_blank" action="https://formsubmit.co/ba73376bb3ef5fe3a50b89900b38e5e4" method="POST">
+                        <div class="form-group">
+                            <div class="form-row inline">
+                            <div class="col">
+                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="col">
+                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" class="text-area" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn projects"><i class="fa-solid fa-paper-plane"></i><i>Send</i></button>
+                        </form>
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <div class="foot">
+            <hr>
+            <i>Created with <i class="fa-solid fa-heart love-color"></i> in <i class="nf nf-linux-manjaro manjaro-color"></i> & <i class="nf nf-dev-visualstudio vscode-color"></i></i>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
