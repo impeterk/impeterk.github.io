@@ -353,6 +353,7 @@ footer .fa-brands:hover {
     background-color: var(--form-color);
     border-radius: 5px;
     border: 1px solid var(--vscode-color);
+    resize: none;
 }
 .foot {
     width: calc(100vw - 1rem);
