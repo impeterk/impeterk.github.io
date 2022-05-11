@@ -158,7 +158,7 @@ footer {
         width: calc(3 * 2.25rem + 2px);
     }
     footer {
-        margin: 5rem auto;
+        margin: 5rem auto auto auto;
     }
 }
 
