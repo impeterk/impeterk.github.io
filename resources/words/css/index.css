@@ -139,10 +139,9 @@ footer {
     body {
         justify-content: flex-start;
         height: fit-content;
-        margin-top: 20px;
     }
     header {
-        height: 6.25rem;
+        height: max-content;
     }
     .rules {
         width: clamp(33ch, 50%, 50ch) ;
@@ -159,7 +158,7 @@ footer {
         width: calc(3 * 2.25rem + 2px);
     }
     footer {
-        margin-top: 10px;
+        margin:auto;
     }
 }
 
