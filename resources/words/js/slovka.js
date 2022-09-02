@@ -52,7 +52,7 @@ const startGame = () => {
 word = '';
 tries = 1;
 solution = setSolution();
-normalizedSolution = noAccent(solution);
+//normalizedSolution = noAccent(solution);
 
 lettersInRow = {
     correct:[],
@@ -188,8 +188,8 @@ const findLetterInRow = () => {
 };
 
 //removes accents
-function noAccent (str) {
-    return str.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+const noAccent = (word) => {
+    return word.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 }
 
 //change Enter key, to start Again at end of game
