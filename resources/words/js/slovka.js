@@ -29,7 +29,7 @@ const maxWordLength = 5;
 const maxTries = 6;
 
 const setSolution = () => {
-    return solution = Math.floor(Math.random() * dictionary.length)
+    return solution = dictionary[Math.floor(Math.random() * dictionary.length)]
 }
 
 let word = '';
@@ -52,7 +52,7 @@ const startGame = () => {
 word = '';
 tries = 1;
 solution = setSolution();
-//normalizedSolution = noAccent(solution);
+normalizedSolution = noAccent(solution);
 
 lettersInRow = {
     correct:[],
