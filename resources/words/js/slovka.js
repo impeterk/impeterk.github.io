@@ -24,9 +24,13 @@ document.getElementById('rules').onclick = function () {
 // Start of not that bad 
 
 //data
-const startGame = () => {
+
 const maxWordLength = 5;
 const maxTries = 6;
+
+const setSolution = () => {
+    return solution = Math.floor(Math.random() * dictionary.length)
+}
 
 let word = '';
 let tries = 1;
@@ -43,8 +47,20 @@ let lettersInRow = {
 }
 
 let canSubmit = true 
+
+const startGame = () => {
+word = '';
+tries = 1;
+normalizedSolution = noAccent(setSolution());
+
+lettersInRow = {
+    correct:[],
+    present: [],
+    wrong: [],
 }
-startGame()
+
+canSubmit = true 
+}
 //KEYS
 document.addEventListener('keydown', (event) => {
     
