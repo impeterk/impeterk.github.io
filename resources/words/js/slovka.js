@@ -35,6 +35,10 @@ const setSolution = () => {
 let word = '';
 let tries = 1;
 let solution = dictionary[Math.floor(Math.random() * dictionary.length)];
+//removes accents
+const noAccent = (word) => {
+    return word.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+}
 let noAccDic = dictionary.map(word => noAccent(word)); // dictionary without accents
 
 let normalizedSolution = noAccent(solution);
@@ -187,10 +191,6 @@ const findLetterInRow = () => {
     }
 };
 
-//removes accents
-const noAccent = (word) => {
-    return word.normalize("NFD").replace(/\p{Diacritic}/gu, "");
-}
 
 //change Enter key, to start Again at end of game
 //reset board and word
