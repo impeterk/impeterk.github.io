@@ -51,7 +51,8 @@ let canSubmit = true
 const startGame = () => {
 word = '';
 tries = 1;
-normalizedSolution = noAccent(setSolution());
+solution = setSolution();
+normalizedSolution = noAccent(solution);
 
 lettersInRow = {
     correct:[],
