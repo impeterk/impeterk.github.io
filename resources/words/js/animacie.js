@@ -1,4 +1,10 @@
+//starting position
+const startAnimation = () => {
+    const startingTile = document.getElementsByClassName("tile");
+    startingTile.className = "tile";
+}
 
+startAnimation();
 //flip tile on input
 const animateTileFlipX = (tile) => {
     tile.classList.add("is-filled", "animate__animated", "animate__flipInX");
@@ -117,3 +123,5 @@ const outOfTries = () =>{
         })
     }, 500);
 }
+
+//restart game 

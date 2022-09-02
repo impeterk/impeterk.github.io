@@ -24,6 +24,7 @@ document.getElementById('rules').onclick = function () {
 // Start of not that bad 
 
 //data
+const startGame = () => {
 const maxWordLength = 5;
 const maxTries = 6;
 
@@ -42,7 +43,8 @@ let lettersInRow = {
 }
 
 let canSubmit = true 
-
+}
+startGame()
 //KEYS
 document.addEventListener('keydown', (event) => {
     
@@ -174,16 +176,20 @@ function noAccent (str) {
 }
 
 //change Enter key, to start Again at end of game
+//reset board and word
+
 const tryAgain = () => {
   setTimeout(() =>{
     document.getElementById('Enter').className = 'tile correct';
     document.getElementById('Enter').innerText = 'znova ?';
     document.getElementById('Enter').onclick = function() {
-      location.reload();
+      startGame();
+      startAnimation();
     }
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-            location.reload();
+            startGame();
+            startAnimation();
         }
     })
   }, 1000)
