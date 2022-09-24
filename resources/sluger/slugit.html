@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>SlugIt</title>
+</head>
+
+<style>
+    html {
+        background-color: hsl(100, 0%, 14%);
+        font-size: 18px;
+    }
+    body {
+        min-height:100vh;
+    }
+    .radius {
+        border-radius: 10px;
+    }
+    .border {
+        border: 1px solid hsl(100, 0%, 86%);
+    }
+    .border-top {
+        border-top: 1px solid hsl(100, 0%, 86%);
+    }
+</style>
+</head>
+
+<body class="has-text-centered is-flex is-flex-direction-column is-align-items-center has-text-grey-lighter m-0 p-0 is-family-primary">
+    <div class="column is-half border radius mt-6" x-data="{
+    unwantedCharSet: [' ', '-', '_', '/'],
+    devider: '-',
+    colors: ['hsl(141, 0%, 85%)', 'hsl(141, 71%, 48%)'],
+    input: '',
+    slug: '',
+    message: {
+        state: '',
+        messagesArray: ['click on URL slug to copy to Clipboard', 'URL slug coppied to Clipboard!'],
+    },
+    successStyle: {
+        color: ''
+    },
+        get createSlug() {
+            this.slug = this.input.trim().split(' ').join(this.devider).toLowerCase()
+            for (let char in this.slug) {
+                if (this.unwantedCharSet.includes(this.slug[char])) {
+                    this.slug = this.slug.replace(this.slug.charAt(char), this.devider)
+                }
+            }
+            this.message.state = this.message.messagesArray[0]
+            this.successStyle.color = this.colors[0]
+        },
+        get copyToClipboard() {
+            navigator.clipboard.writeText(this.slug)
+            this.message.state = this.message.messagesArray[1]
+            this.successStyle.color = this.colors[1]
+        },
+        get newDevider() {
+            this.devider = event.target.value
+        },
+        get clear() {
+            this.input = '';
+            this.slug = '';
+            this.message.state = '';
+        }
+    }">
+        <h1 class="is-uppercase is-size-3 has-text-weight-bold">Slug It!</h1>
+        <i class="has-text-grey is-size-7">URL slug creator</i>
+        <div class="is-flex is-justify-content-center is-align-items-center">
+            <input x-model="input" class="input column is-6 mr-3" id="myInput" type="text" placeholder="text to create slug" />
+                <button class="button px-5 is-success is-medium" x-on:click="createSlug">Slug It!</button>
+        </div>
+        <div class="is-flex is-justify-content-center my-4 is-align-items-center">
+        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == '-'}">Create slug with ( - )</button>
+        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == '_'}">Create slug with ( _ )</button>
+        </div>
+        <div class="is-flex is-justify-content-space-between is-align-items-center m-3 border-top">
+            <h3 class="is-size-5 column is-3">URL slug:</h3>
+            <p class="column has-text-black-ter radius is-clickable" x-on:click="copyToClipboard" :class="{'has-background-light p-0' : slug}" x-text="slug"></p>
+        </div>
+        <i x-text="message.state":style="successStyle"></i><br>
+        <button class="button is-light has-text-weight-semibold px-6 mt-3" x-on:click="clear">Clear</button>
+    </div>
+    <footer class="py-2 footer has-background-black-ter has-text-centered">
+            <p class="has-text-grey is-size-7">Created with <span> <a href="https://bulma.io/"><img alt="bulma logo" width="4%" src="https://bulma.io/images/bulma-logo.png" /></a></span> && <span> <a href="https://alpinejs.dev/"><img width="7%" style="filter: brightness(150%)"src="https://alpinejs.dev/alpine_long.svg" alt="apline.js logo" /></a></span></p>
+    </footer>
+</body>
+
+</html>
