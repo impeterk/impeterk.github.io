@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{
+    htmlStyles: {
+        'background-color': 'hsl(100, 0%, 14%)',
+        'font-size': '18px'
+    }
+}" :style="htmlStyles">
 
 <head>
     <meta charset="UTF-8">
@@ -11,13 +16,6 @@
 </head>
 
 <style>
-    html {
-        background-color: hsl(100, 0%, 14%);
-        font-size: 18px;
-    }
-    body {
-        min-height:100vh;
-    }
     .radius {
         border-radius: 10px;
     }
@@ -55,6 +53,9 @@
             this.successStyle.color = this.colors[0]
         },
         get copyToClipboard() {
+            if (this.slug == '') {
+                return
+            }
             navigator.clipboard.writeText(this.slug)
             this.message.state = this.message.messagesArray[1]
             this.successStyle.color = this.colors[1]
@@ -75,18 +76,18 @@
                 <button class="button px-5 is-success is-medium" x-on:click="createSlug">Slug It!</button>
         </div>
         <div class="is-flex is-justify-content-center my-4 is-align-items-center">
-        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == '-'}">Create slug with ( - )</button>
-        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == '_'}">Create slug with ( _ )</button>
+        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == $el.value}">Create slug with ( - )</button>
+        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == $el.value}">Create slug with ( _ )</button>
         </div>
         <div class="is-flex is-justify-content-space-between is-align-items-center m-3 border-top">
             <h3 class="is-size-5 column is-3">URL slug:</h3>
-            <p class="column has-text-black-ter radius is-clickable" x-on:click="copyToClipboard" :class="{'has-background-light p-0' : slug}" x-text="slug"></p>
+            <p class="column has-text-black-ter radius" x-on:click="copyToClipboard" :class="{'has-background-light p-0 is-clickable' : slug}" x-text="slug"></p>
         </div>
-        <i x-text="message.state":style="successStyle"></i><br>
+        <i x-text="message.state" :style="successStyle"></i><br>
         <button class="button is-light has-text-weight-semibold px-6 mt-3" x-on:click="clear">Clear</button>
     </div>
     <footer class="py-2 footer has-background-black-ter has-text-centered">
-            <p class="has-text-grey is-size-7">Created with <span> <a href="https://bulma.io/"><img alt="bulma logo" width="4%" src="https://bulma.io/images/bulma-logo.png" /></a></span> && <span> <a href="https://alpinejs.dev/"><img width="7%" style="filter: brightness(150%)"src="https://alpinejs.dev/alpine_long.svg" alt="apline.js logo" /></a></span></p>
+            <p class="has-text-grey is-size-7" x-data>Created with <span> <a href="https://bulma.io/" target="_blank" rel="noopener"><img alt="bulma logo" width="4%" src="https://bulma.io/images/bulma-logo.png" /></a></span> && <span> <a href="https://alpinejs.dev/" target="_blank" rel="noopener"><img width="7%" :style="{filter: 'brightness(150%)'} " src="https://alpinejs.dev/alpine_long.svg" alt="apline.js logo" /></a></span></p>
     </footer>
 </body>
 
