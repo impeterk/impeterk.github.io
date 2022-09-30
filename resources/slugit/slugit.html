@@ -93,8 +93,8 @@
                 <button class="button px-5 is-success is-medium" x-on:click="createSlug">Slug It!</button>
         </div>
         <div class="is-flex is-justify-content-center my-4 is-align-items-center">
-        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider(newDevider)" :class="{'is-normal' : devider == $el.value}">Create slug with ( - )</button>
-        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider(newDevider)" :class="{'is-normal' : devider == $el.value}">Create slug with ( _ )</button>
+        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider($el.value)" :class="{'is-normal' : devider == $el.value}">Create slug with ( - )</button>
+        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider($el.value)" :class="{'is-normal' : devider == $el.value}">Create slug with ( _ )</button>
         </div>
         <div class="is-flex is-justify-content-space-between is-align-items-center m-3 border-top">
             <h3 class="is-size-5 column is-3">URL slug:</h3>
