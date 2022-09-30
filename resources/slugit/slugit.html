@@ -61,7 +61,7 @@
                     this.slug = this.slug.replace(this.slug.charAt(char), 'ss')
                 }
                 
-                if (this.slug.charAt(index) !== this.devider && this.slug.charAt(char) !== this.devider) {
+                if (this.slug.charAt(index) !== this.devider || this.slug.charAt(char) !== this.devider) {
                     slugSingleDevider.push(this.slug.charAt(char))
                 }
             }
