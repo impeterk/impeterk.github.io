@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/rocket-solid.svg" type="image/x-icon">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>SlugIt</title>
@@ -20,7 +21,7 @@
         border-radius: 10px;
     }
     .border {
-        border: 1px solid hsl(100, 0%, 86%);
+        border: 1px solid hsl(100, 0%, 48%);
     }
     .border-top {
         border-top: 1px solid hsl(100, 0%, 86%);
@@ -29,7 +30,7 @@
 </head>
 
 <body class="has-text-centered is-flex is-flex-direction-column is-align-items-center has-text-grey-lighter m-0 p-0 is-family-primary">
-    <div class="column is-half border radius mt-6 p-1" x-data="{
+    <div class="column is-half border p-1 radius mt-6" x-data="{
     unwantedCharSet: [' ', '-', '_', '/'],
     devider: '-',
     colors: ['hsl(141, 0%, 85%)', 'hsl(141, 71%, 48%)'],
@@ -42,17 +43,33 @@
     successStyle: {
         color: ''
     },
-        get createSlug() {
-            this.slug = this.input.trim().split(' ').join(this.devider).toLowerCase()
+        createSlug() {
+            this.slug = this.input.trim().split(' ').join(this.devider).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+            <!-- I have not came up with simpler solution yet to get rid of multiple deviders-->
+            let slugSingleDevider = []
+
             for (let char in this.slug) {
-                if (this.unwantedCharSet.includes(this.slug[char])) {
+                char = parseInt(char, 10)
+                let index = char - 1
+                
+                if (this.charSetToReplace.includes(this.slug.charAt(char))) {
                     this.slug = this.slug.replace(this.slug.charAt(char), this.devider)
                 }
+
+                if (this.slug.charAt(char) === 'ß') {
+                    this.slug = this.slug.replace(this.slug.charAt(char), 'ss')
+                }
+                
+                if (this.slug.charAt(index) !== this.devider && this.slug.charAt(char) !== this.devider) {
+                    slugSingleDevider.push(this.slug.charAt(char))
+                }
             }
+            this.slug = slugSingleDevider.join('')
             this.message.state = this.message.messagesArray[0]
             this.successStyle.color = this.colors[0]
         },
-        get copyToClipboard() {
+        copyToClipboard() {
             if (this.slug == '') {
                 return
             }
@@ -60,10 +77,10 @@
             this.message.state = this.message.messagesArray[1]
             this.successStyle.color = this.colors[1]
         },
-        get newDevider() {
-            this.devider = event.target.value
+        setDevider(newDevider) {
+            this.devider = newDevider
         },
-        get clear() {
+        clear() {
             this.input = '';
             this.slug = '';
             this.message.state = '';
@@ -76,8 +93,8 @@
                 <button class="button px-5 is-success is-medium" x-on:click="createSlug">Slug It!</button>
         </div>
         <div class="is-flex is-justify-content-center my-4 is-align-items-center">
-        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == $el.value}">Create slug with ( - )</button>
-        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="newDevider" :class="{'is-normal' : devider == $el.value}">Create slug with ( _ )</button>
+        <button value="-" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider(newDevider)" :class="{'is-normal' : devider == $el.value}">Create slug with ( - )</button>
+        <button value="_" class="button is-success is-inverted is-small mr-3" x-on:click="setDevider(newDevider)" :class="{'is-normal' : devider == $el.value}">Create slug with ( _ )</button>
         </div>
         <div class="is-flex is-justify-content-space-between is-align-items-center m-3 border-top">
             <h3 class="is-size-5 column is-3">URL slug:</h3>
