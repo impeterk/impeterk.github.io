@@ -302,6 +302,9 @@ footer .fa-brands {
 footer .fa-brands:hover {
     opacity: 0.85;
 }
+footer a {
+    text-decoration: none;
+}
 
 .email {
     font-size: 1.25rem;
